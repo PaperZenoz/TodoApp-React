@@ -31,7 +31,7 @@ const App = () => {
 
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/todos?_limit=20')
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
             .then(response => response.json()).then(todos => {
             setTimeout(() => {
                 setTodos(todos)
@@ -56,7 +56,6 @@ const App = () => {
         setTodos(todos.filter(todo => todo.id !== id))
     }
     const addTodo = (text) => {
-        debugger
         setTodos(todos.concat([{
             id: Date.now(),
             title: text,
@@ -77,6 +76,10 @@ const App = () => {
                 </React.Suspense>
 
                 {loading && <Loader/>}
+
+                <ul class="list-group">
+
+                </ul>
 
                 {todos.length ? (todos.map((todo, index) => <TodoItem key={todo.id} todo={todo} index={index} todoCheck={todoCheck}/>)) :
                     (loading ? null : <p>Задач нет</p>)}

@@ -6,13 +6,13 @@ const TodoItem = ({todo, index}) => {
 
     let classes = []
 
-    if(todo.completed){
+    if (todo.completed) {
         classes.push('todo-item__done')
     }
 
 
     return (
-        <div className="todo-item">
+        <li className="todo-item list-group-item">
             <div className={classes.join(' ')}>
                 <div className="todo-item__todo">
                     <input type="checkbox" checked={todo.completed} onChange={todoCheck.bind(null, todo.id)}/>
@@ -20,11 +20,11 @@ const TodoItem = ({todo, index}) => {
                 </div>
             </div>
             <div>
-                <button onClick={removeTodo.bind(null, todo.id)}>
+                <button className="btn btn-outline-danger" onClick={removeTodo.bind(null, todo.id)}>
                     &times;
                 </button>
             </div>
-        </div>
+        </li>
     )
 }
 
