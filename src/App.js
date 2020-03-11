@@ -66,8 +66,8 @@ const App = () => {
 
     return (
         <Context.Provider value={{todoCheck, removeTodo, addTodo}}>
-            <div className="App">
-                <h1>Тест</h1>
+            <div className="container">
+                <h1 className="text-white mt-4">Список задач</h1>
 
 
 
@@ -82,7 +82,7 @@ const App = () => {
                 </ul>
 
                 {todos.length ? (todos.map((todo, index) => <TodoItem key={todo.id} todo={todo} index={index} todoCheck={todoCheck}/>)) :
-                    (loading ? null : <p>Задач нет</p>)}
+                    (loading ? null : <p className="text-white">Задач нет</p>)}
 
             </div>
         </Context.Provider>
